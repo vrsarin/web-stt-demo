@@ -101,6 +101,13 @@ function initSpeechRecognition() {
     };
 }
 
+// Escape HTML to prevent XSS
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
 // Update transcript display
 function updateTranscript() {
     if (finalTranscript === '' && interimTranscript === '') {
@@ -108,10 +115,10 @@ function updateTranscript() {
     } else {
         let html = '';
         if (finalTranscript) {
-            html += `<span class="final">${finalTranscript}</span>`;
+            html += `<span class="final">${escapeHtml(finalTranscript)}</span>`;
         }
         if (interimTranscript) {
-            html += `<span class="interim">${interimTranscript}</span>`;
+            html += `<span class="interim">${escapeHtml(interimTranscript)}</span>`;
         }
         transcriptDiv.innerHTML = html;
     }

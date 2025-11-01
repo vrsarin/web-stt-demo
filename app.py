@@ -28,7 +28,19 @@ def speech_to_text():
         return jsonify({'error': 'No text provided'}), 400
     
     text = data['text']
+    
+    # Validate input
+    if not isinstance(text, str):
+        return jsonify({'error': 'Text must be a string'}), 400
+    
+    if len(text) > 10000:  # Reasonable limit for text length
+        return jsonify({'error': 'Text exceeds maximum length of 10000 characters'}), 400
+    
     confidence = data.get('confidence', None)
+    
+    # Validate confidence if provided
+    if confidence is not None and (not isinstance(confidence, (int, float)) or confidence < 0 or confidence > 1):
+        return jsonify({'error': 'Confidence must be a number between 0 and 1'}), 400
     
     # Here you could save to database, process the text, etc.
     # For this demo, we'll just return a confirmation
