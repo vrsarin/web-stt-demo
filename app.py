@@ -174,6 +174,7 @@ def main():
             media_stream_constraints={"video": False, "audio": True},
             audio_receiver_size=1024,
             async_processing=True,
+            audio_frame_callback=st.session_state.audio_processor.recv,
         )
         
         st.markdown("---")

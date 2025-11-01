@@ -70,8 +70,17 @@ async def transcribe_audio(
     if not file:
         raise HTTPException(status_code=400, detail="No file provided")
     
+    # Validate file extension
+    allowed_extensions = {'.wav', '.mp3', '.m4a', '.flac', '.ogg', '.webm'}
+    file_ext = os.path.splitext(file.filename)[1].lower()
+    if file_ext not in allowed_extensions:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Unsupported file format. Allowed formats: {', '.join(allowed_extensions)}"
+        )
+    
     # Save uploaded file temporarily
-    with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(file.filename)[1]) as tmp_file:
+    with tempfile.NamedTemporaryFile(delete=False, suffix=file_ext) as tmp_file:
         content = await file.read()
         tmp_file.write(content)
         tmp_file_path = tmp_file.name
