@@ -1,0 +1,51 @@
+{
+    "configurations": [
+        {
+            "name": "API",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "src.api.api:app",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8080",
+                "--reload",
+                "--log-level",
+                "debug"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "UI",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "streamlit",
+            "args": [
+                "run",
+                "src/ui/app.py",
+                "--server.port",
+                "8502"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Stack",
+            "configurations": ["API","UI"]
+        }
+    ]
+
+}

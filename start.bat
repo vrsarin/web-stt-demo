@@ -13,13 +13,13 @@ if %errorlevel% neq 0 (
 )
 
 echo Starting FastAPI backend on port 8000...
-start /B python api.py
+start /B python src/api/api.py
 
 REM Wait for API to start
 timeout /t 3 /nobreak >nul
 
 echo Starting Streamlit frontend on port 8501...
-start /B streamlit run app.py
+start /B streamlit run src/ui/app.py
 
 echo.
 echo ==========================================

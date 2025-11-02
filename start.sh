@@ -18,14 +18,14 @@ if ! python3 -c "import streamlit" 2>/dev/null; then
 fi
 
 echo "Starting FastAPI backend on port 8000..."
-python3 api.py &
+python3 ./src/api/api.py &
 API_PID=$!
 
 # Wait for API to start
 sleep 3
 
 echo "Starting Streamlit frontend on port 8501..."
-streamlit run app.py &
+streamlit run ./src/ui/app.py &
 STREAMLIT_PID=$!
 
 echo ""
