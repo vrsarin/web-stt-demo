@@ -1,0 +1,22 @@
+[project]
+name = "web-stt-demo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "aiofiles>=25.1.0",
+    "audioop-lts>=0.2.2",
+    "av>=16.0.1",
+    "fastapi>=0.120.4",
+    "ffmpeg-python>=0.2.0",
+    "httpx>=0.28.1",
+    "numpy>=2.3.4",
+    "openai-whisper>=20250625",
+    "pydub>=0.25.1",
+    "python-multipart>=0.0.20",
+    "streamlit>=1.51.0",
+    "streamlit-webrtc>=0.63.11",
+    "torch>=2.9.0",
+    "uvicorn[standard]>=0.38.0",
+]

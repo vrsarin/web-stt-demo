@@ -1,0 +1,19 @@
+{
+  "name": "web-ivr",
+  "version": "1.0.0",
+  "description": "Minimal Node.js scaffold for a WebRTC-based IVR frontend.",
+  "main": "index.js",
+   "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  },
+  "optionalDependencies": {
+    "wrtc": "^0.4.8"
+  }
+}

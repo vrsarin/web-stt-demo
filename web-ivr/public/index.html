@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web IVR Demo</title>
+    <style>
+      body { font-family: Arial, sans-serif; padding: 24px; }
+      button { margin-right: 12px; }
+      #logs { white-space: pre-wrap; background:#111; color:#eee; padding:12px; border-radius:6px; max-height:240px; overflow:auto; }
+    </style>
+  </head>
+  <body>
+    <h1>Web IVR — WebRTC Client</h1>
+
+    <div>
+      <label for="serverUrl">Signaling URL: </label>
+      <input id="serverUrl" type="text" size="40" value="http://localhost:3000" />
+    </div>
+
+    <div style="margin-top:12px">
+      <label><input type="radio" name="role" value="broadcaster" checked> Broadcaster</label>
+      <label style="margin-left:12px"><input type="radio" name="role" value="viewer"> Viewer</label>
+    </div>
+
+    <div style="margin-top:12px">
+      <button id="startBtn">Start</button>
+      <button id="stopBtn" disabled>Stop</button>
+    </div>
+
+    <h3>Logs</h3>
+    <div id="logs"></div>
+
+    <!-- Socket.IO client served from the server -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
