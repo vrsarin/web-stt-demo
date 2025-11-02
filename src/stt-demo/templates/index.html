@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech-to-Text Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎤 Speech-to-Text Demo</h1>
+            <p class="subtitle">Click the microphone button and start speaking</p>
+        </header>
+
+        <main>
+            <div class="control-panel">
+                <button id="startBtn" class="btn btn-start">
+                    <span class="icon">🎤</span>
+                    <span class="text">Start Recording</span>
+                </button>
+                <button id="stopBtn" class="btn btn-stop" disabled>
+                    <span class="icon">⏹️</span>
+                    <span class="text">Stop Recording</span>
+                </button>
+                <button id="clearBtn" class="btn btn-clear">
+                    <span class="icon">🗑️</span>
+                    <span class="text">Clear</span>
+                </button>
+            </div>
+
+            <div class="status-panel">
+                <div id="status" class="status">Ready</div>
+                <div id="confidence" class="confidence"></div>
+            </div>
+
+            <div class="transcript-panel">
+                <h2>Transcript:</h2>
+                <div id="transcript" class="transcript">
+                    <div class="placeholder">Your speech will appear here...</div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <h3>ℹ️ Information</h3>
+                <ul>
+                    <li>This demo uses the Web Speech API (browser-based STT)</li>
+                    <li>Works best in Chrome, Edge, and Safari</li>
+                    <li>Microphone permission is required</li>
+                    <li>Transcribed text is sent to the backend API</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ for Speech-to-Text demonstration</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
